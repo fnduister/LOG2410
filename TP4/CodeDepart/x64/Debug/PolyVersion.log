@@ -1,0 +1,13 @@
+﻿  AbsTransform.cpp
+  AudioFile.cpp
+  Chunk.cpp
+  ChunkIterator.cpp
+  CompositeTransform.cpp
+  InvertTransform.cpp
+  Main.cpp
+  MemAudioFile.cpp
+c:\users\fabrice\desktop\poly\log2410\tp4\codedepart\memaudiofile.cpp(25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  RepeatTransform.cpp
+  Test_TP4.cpp
+  Generating Code...
+  PolyVersion.vcxproj -> C:\Users\fabrice\Desktop\Poly\log2410\TP4\CodeDepart\x64\Debug\PolyVersion.exe
