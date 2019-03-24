@@ -11,10 +11,11 @@
 #include <iterator>
 #include <memory>
 #include <vector>
+#include <list>
 
 // Configuration du stockage des enfants des objets composites
 using TransformPtr = std::unique_ptr<class AbsTransform>;
-using TransformContainer = std::vector<TransformPtr>;
+using TransformContainer = std::list<TransformPtr>;
 using TransformBaseIterator = TransformContainer::iterator;
 using TransformBaseIterator_const = TransformContainer::const_iterator;
 
