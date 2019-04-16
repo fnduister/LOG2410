@@ -16,7 +16,17 @@ void FileChecksumCalculator::visit(const AudioFile & f)
 	m_checkSum = 0xabcdef00;
 
 	// A COMPLETER:
+	unsigned int index = 0;
 	// Iterer sur chacun des Chunk
+	auto debut = f.begin();
+	for (debut; debut != f.end(); debut++) {
+	
+		const Chunk * chunk =debut.operator->();
+		m_checkSum = combineHash(m_checkSum, computeChunkHash(chunk->size(), chunk->get()), index);
+		index++;
+	}
+
+	   //--m_checkSum =combineHash(m_checkSum,computeHash(chunk.size(),chunk.get())) ? index du chunk --- le chunk a une methode get index ...
 	//    - Calculer le hash du Chunk avec computeHash
 	//    - Combiner le checksum, le hash du Chunk et l'index du Chunk avec combineHash
 	//    - Conserver le resultat comme nouveau checksum
@@ -32,6 +42,16 @@ void FileChecksumCalculator::visit(const MemAudioFile & f)
 	const char* buf = f.get()+f.getHeaderSize();
 
 	// A COMPLETER:
+	unsigned int index = 0;
+	// Iterer sur chacun des Chunk
+	auto debut = f.begin();
+	for (debut; debut != f.end(); debut++) {
+
+		const Chunk * chunk = debut.operator->();
+		m_checkSum = combineHash(m_checkSum, computeChunkHash(chunk->size(), chunk->get()), index);
+		index++;
+		buf++;//?
+	}
 	// Iterer sur chacun des Chunk
 	//    - Calculer le hash du Chunk (portion de buf) avec computeHash
 	//    - Combiner le checksum, le hash du Chunk et l'index du Chunk avec combineHash
